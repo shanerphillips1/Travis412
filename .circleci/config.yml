@@ -11,8 +11,10 @@ jobs:
           name: Compile and run JUnit tests
           command: |
             mkdir -p bin
-            javac -cp ".:junit-4.13.2.jar:hamcrest-core-1.3.jar" -d bin *.java
-            java -cp "bin:junit-4.13.2.jar:hamcrest-core-1.3.jar" org.junit.runner.JUnitCore travis_ci_tutorial_java.SimpleCalculatorTest
+            javac -cp ".:junit-4.13.2.jar:hamcrest-core-1.3.jar" \
+              -d bin travis_ci_tutorial_java/*.java
+            java -cp "bin:junit-4.13.2.jar:hamcrest-core-1.3.jar" \
+              org.junit.runner.JUnitCore travis_ci_tutorial_java.SimpleCalculatorTest
 
 workflows:
   build_and_test:
